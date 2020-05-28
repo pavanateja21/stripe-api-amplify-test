@@ -7,7 +7,10 @@ See the License for the specific language governing permissions and limitations 
 */
 
 
-
+/* Amplify Params - DO NOT EDIT
+	ENV
+	REGION
+Amplify Params - DO NOT EDIT */
 
 var express = require('express')
 var bodyParser = require('body-parser')
@@ -42,22 +45,7 @@ if (req && req.query) {
   apiUrl = `https://api.stripe.com/v1/customers?limit=${limit}`
 }
 
-// stripe.customers.list(
-//   { limit: 1 },
-//   function(err, customers) {
-//     if (customers) {
-//       res.json({
-//          customers: customers.data
-//        })
-//     } else {
-//      res.json({ error: err });
-//     }
-//   }
-// );
-
-console.log(req.query);
-console.log("API _KEY: " + process.env.STRIPE_API_KEY);
-axios.get(apiUrl, { headers: {"Authorization" : `Bearer ${process.env.STRIPE_API_KEY}:`} })
+axios.get(apiUrl, { headers: {"Authorization" : `Bearer ${process.env.STRIPE_API_KEY}` } })
   .then(response => {
     res.json({
       customers: response.data

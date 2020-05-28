@@ -14,15 +14,15 @@
         },
     
     
-          "functioncustomersName": {
+          "functioncustomersListName": {
             "Type": "String",
-            "Default": "functioncustomersName"
+            "Default": "functioncustomersListName"
           },
         
           
-          "functioncustomersArn": {
+          "functioncustomersListArn": {
             "Type": "String",
-            "Default": "functioncustomersArn"
+            "Default": "functioncustomersListArn"
           }
         
           
@@ -41,13 +41,13 @@
     },
     "Resources": {
         
-        "PolicyAPIGWcustomersApiauth": {
+        "PolicyAPIGWcustomersListAPIauth": {
             "DependsOn": [
-              "customersApi"
+              "customersListAPI"
             ],
             "Type": "AWS::IAM::Policy",
             "Properties": {
-              "PolicyName": "PolicyAPIGWcustomersApiauth",
+              "PolicyName": "PolicyAPIGWcustomersListAPIauth",
               "Roles": [
                 {"Ref": "authRoleName"}
               ],
@@ -77,7 +77,7 @@
                             },
                             ":",
                             {
-                              "Ref": "customersApi"
+                              "Ref": "customersListAPI"
                             },
                             "/",
                             {
@@ -108,7 +108,7 @@
                             },
                             ":",
                             {
-                              "Ref": "customersApi"
+                              "Ref": "customersListAPI"
                             },
                             "/",
                             {
@@ -143,7 +143,7 @@
                             },
                             ":",
                             {
-                              "Ref": "customersApi"
+                              "Ref": "customersListAPI"
                             },
                             "/",
                             {
@@ -174,7 +174,7 @@
                             },
                             ":",
                             {
-                              "Ref": "customersApi"
+                              "Ref": "customersListAPI"
                             },
                             "/",
                             {
@@ -209,7 +209,7 @@
                             },
                             ":",
                             {
-                              "Ref": "customersApi"
+                              "Ref": "customersListAPI"
                             },
                             "/",
                             {
@@ -240,7 +240,7 @@
                             },
                             ":",
                             {
-                              "Ref": "customersApi"
+                              "Ref": "customersListAPI"
                             },
                             "/",
                             {
@@ -275,7 +275,7 @@
                             },
                             ":",
                             {
-                              "Ref": "customersApi"
+                              "Ref": "customersListAPI"
                             },
                             "/",
                             {
@@ -306,7 +306,7 @@
                             },
                             ":",
                             {
-                              "Ref": "customersApi"
+                              "Ref": "customersListAPI"
                             },
                             "/",
                             {
@@ -341,7 +341,7 @@
                             },
                             ":",
                             {
-                              "Ref": "customersApi"
+                              "Ref": "customersListAPI"
                             },
                             "/",
                             {
@@ -372,7 +372,7 @@
                             },
                             ":",
                             {
-                              "Ref": "customersApi"
+                              "Ref": "customersListAPI"
                             },
                             "/",
                             {
@@ -405,16 +405,16 @@
         
         
         
-      "customersApi": {
+      "customersListAPI": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
           "Description": "",
-          "Name": "customersApi",
+          "Name": "customersListAPI",
           "Body": {
             "swagger": "2.0",
             "info": {
               "version": "2018-05-24T17:52:00Z",
-              "title": "customersApi"
+              "title": "customersListAPI"
             },
             "host": {
                 "Fn::Join": [
@@ -542,7 +542,7 @@
                             
                             {
                                 
-                                "Ref": "functioncustomersArn"
+                                "Ref": "functioncustomersListArn"
                             },
                             
                             "/invocations"
@@ -647,7 +647,7 @@
                           
                           {
                             
-                            "Ref": "functioncustomersArn"
+                            "Ref": "functioncustomersListArn"
                           },
                           
                           "/invocations"
@@ -704,12 +704,12 @@
                   
         
         
-        "functioncustomersPermissioncustomersApi": {
+        "functioncustomersListPermissioncustomersListAPI": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functioncustomersName"
+                        "Ref":  "functioncustomersListName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
@@ -728,7 +728,7 @@
                             },
                             ":",
                             {
-                                "Ref": "customersApi"
+                                "Ref": "customersListAPI"
                             },
                             "/*/*/*"
                         ]
@@ -739,7 +739,7 @@
         
         
         
-      "DeploymentAPIGWcustomersApi": {
+      "DeploymentAPIGWcustomersListAPI": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
@@ -753,7 +753,7 @@
             ]
           },
           "RestApiId": {
-            "Ref": "customersApi"
+            "Ref": "customersListAPI"
           }
         }
       }
@@ -761,15 +761,15 @@
     "Outputs": {
         "RootUrl": {
             "Description": "Root URL of the API gateway",
-            "Value": {"Fn::Join": ["", ["https://", {"Ref": "customersApi"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
+            "Value": {"Fn::Join": ["", ["https://", {"Ref": "customersListAPI"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
         },
         "ApiName": {
           "Description": "API Friendly name",
-          "Value": "customersApi"
+          "Value": "customersListAPI"
         },
         "ApiId": {
           "Description": "API ID (prefix of API URL)",
-          "Value": {"Ref": "customersApi"}
+          "Value": {"Ref": "customersListAPI"}
         }
     }
   }

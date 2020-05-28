@@ -13,7 +13,7 @@
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda"
 		},
-		"customers": {
+		"customersList": {
 			"build": true,
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda"
@@ -34,13 +34,13 @@
 				}
 			]
 		},
-		"customersApi": {
+		"customersListAPI": {
 			"service": "API Gateway",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [
 				{
 					"category": "function",
-					"resourceName": "customers",
+					"resourceName": "customersList",
 					"attributes": [
 						"Name",
 						"Arn"

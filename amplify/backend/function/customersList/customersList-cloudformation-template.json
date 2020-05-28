@@ -33,12 +33,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"customers",
+						"customersList",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"customers",
+									"customersList",
 									"-",
 									{
 										"Ref": "env"
@@ -68,7 +68,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-stripeapiamplifytest-devtest-155630-deployment",
-					"S3Key": "amplify-builds/customers-464b58585566564b6b39-build.zip"
+					"S3Key": "amplify-builds/customersList-63733530305066585457-build.zip"
 				}
 			}
 		},
@@ -78,12 +78,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"stripeapiamplifytestLambdaRolee3a84b4b",
+						"stripeapiamplifytestLambdaRoledaf9d1ed",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"stripeapiamplifytestLambdaRolee3a84b4b",
+									"stripeapiamplifytestLambdaRoledaf9d1ed",
 									"-",
 									{
 										"Ref": "env"

@@ -2,7 +2,7 @@
     "paths": [
         {
             "name": "/customers",
-            "lambdaFunction": "customers",
+            "lambdaFunction": "customersList",
             "privacy": {
                 "private": true,
                 "auth": [
@@ -15,11 +15,11 @@
             }
         }
     ],
-    "resourceName": "customersApi",
-    "apiName": "customersApi",
+    "resourceName": "customersListAPI",
+    "apiName": "customersListAPI",
     "functionArns": [
         {
-            "lambdaFunction": "customers"
+            "lambdaFunction": "customersList"
         }
     ],
     "privacy": {
@@ -31,7 +31,7 @@
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "customers",
+            "resourceName": "customersList",
             "attributes": [
                 "Name",
                 "Arn"

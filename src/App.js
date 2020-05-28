@@ -13,7 +13,7 @@ class App extends Component {
       console.log('data from Lambda REST API: ', data)
       this.setState({ coins: data.coins })
 
-      const customersData = await API.get('customers', '/customers?limit=1')
+      const customersData = await API.get('customersListAPI', '/customers?limit=1')
       console.log('data from Stripe customers REST API: ', customersData)
       this.setState({ customers: customersData })
     } catch (err) {
