@@ -1,0 +1,52 @@
+{
+	"auth": {
+		"stripeapiamplifytest0d7880f7": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	},
+	"function": {
+		"cryptofunction1": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda"
+		},
+		"customers": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda"
+		}
+	},
+	"api": {
+		"cryptoapi1": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "cryptofunction1",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		},
+		"customersApi": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "customers",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		}
+	}
+}

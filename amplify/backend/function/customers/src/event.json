@@ -1,0 +1,7 @@
+{
+    "httpMethod": "GET",
+    "path": "/customers",
+    "query": {
+        "limit": "1"
+    }
+}

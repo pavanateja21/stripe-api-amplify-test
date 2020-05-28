@@ -1,0 +1,41 @@
+{
+    "paths": [
+        {
+            "name": "/customers",
+            "lambdaFunction": "customers",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            }
+        }
+    ],
+    "resourceName": "customersApi",
+    "apiName": "customersApi",
+    "functionArns": [
+        {
+            "lambdaFunction": "customers"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-stripeapiamplifytest-devtest-155630-authRole",
+        "unAuthRoleName": "amplify-stripeapiamplifytest-devtest-155630-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "customers",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
